@@ -5,7 +5,7 @@ import hashlib
 import base64
 import qrcode
 
-key = "othman.nouakchi@007"
+key = "your secret key here"
 counter = int(time.time()) // 30
 
 counter_bytes = struct.pack(">Q", counter)
@@ -25,9 +25,9 @@ secret = base64.b32encode(key.encode())
 # otpauth://totp/MyApp:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=MyApp&digits=6&period=30&algorithm=SHA1
 
 uri = (
-    f"otpauth://totp/ft_otp:othman.nouakchi007@gmail.com"
+    f"otpauth://totp/ft_otp:exemple@gmail.com"
     f"?secret={secret.decode('utf-8').rstrip('=')}"
-    f"&issuer=othman"
+    f"&issuer=username"
     f"&algorithm=SHA1"
     f"&digits=6"
     f"&period=30"
