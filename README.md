@@ -34,7 +34,7 @@ The key differences between HOTP and TOTP:
 
 ### Base32 Encoding
 
-The secret key (e.g., "othman.nouakchi@007") must be encoded into a format compatible with authenticator applications. We use Base32 encoding for this purpose:
+The secret key (e.g., "shared key secret") must be encoded into a format compatible with authenticator applications. We use Base32 encoding for this purpose:
 
 1. Convert the secret key string to bytes (UTF-8 encoding)
 2. Apply Base32 encoding to the bytes
@@ -124,10 +124,10 @@ otpauth://totp/ft_otp:othman.nouakchi007@gmail.com?secret=BASE32SECRET&issuer=ot
 
 This URI contains:
 - Protocol identifier: `otpauth://totp/`
-- Label: `ft_otp:othman.nouakchi007@gmail.com` (identifies the account)
+- Label: `ft_otp:exemple@gmail.com` (identifies the account)
 - Parameters:
   - `secret`: Base32-encoded secret key (without padding characters)
-  - `issuer`: The service or application name ("othman")
+  - `issuer`: The service or application name ("username")
   - `algorithm`: Hash algorithm used (SHA1)
   - `digits`: Number of digits in the token (6)
   - `period`: Time step in seconds (30)
