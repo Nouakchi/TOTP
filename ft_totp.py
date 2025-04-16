@@ -23,8 +23,6 @@ def totp_token(key):
 
     print(f"TOTP Token:\n {token:06d}")
 
-    # otpauth://totp/MyApp:user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=MyApp&digits=6&period=30&algorithm=SHA1
-
     secret = base64.b32encode(key.encode())
 
     uri = (
@@ -45,10 +43,7 @@ def totp_token(key):
     qr.make()
 
     print("\nScan this QR Code with your Authenticator app:")
-    qr.print_ascii(invert=True)  # Use print_ascii() or print_tty()
-
-
-# -----------------------------------------------------------------------
+    qr.print_ascii(invert=True)
 
 def encode_key() -> bytes:
     hash_digest = hashlib.sha256("PFXXK4RAONSWG4TFOQQGWZLZEBUGK4TF".encode()).digest()
